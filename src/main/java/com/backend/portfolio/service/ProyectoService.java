@@ -14,12 +14,13 @@ public class ProyectoService implements IProyectoService {
     
     @Override
     public List<Proyectos> verProyecto() {
-        return proyectRepo.findAll();
-   }
+        List<Proyectos> proyecto = proyectRepo.findAll();
+        return proyecto;
+    }
 
     @Override
-    public void agregarProyecto(Proyectos Pro) {
-        proyectRepo.save(Pro);
+    public void agregarProyecto(Proyectos pro) {
+        proyectRepo.save(pro);
     }
 
     @Override
@@ -29,11 +30,14 @@ public class ProyectoService implements IProyectoService {
 
     @Override
     public Proyectos buscarProyecto(Long id) {
-        return proyectRepo.findById(id).orElse(null);
-    }
+        Proyectos proyecto = proyectRepo.findById(id).orElse(null);
+        return proyecto;
+     }
 
     @Override
-    public void editarProyecto(Proyectos Pro) {
-        proyectRepo.save(Pro);
-    }   
+    public void editarProyecto(Proyectos pro) {
+        proyectRepo.save(pro);
+    }
+    
+    
 }

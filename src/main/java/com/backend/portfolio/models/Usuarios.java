@@ -27,6 +27,4 @@ public class Usuarios {
         this.oficioUsu = oficioUsu;
         this.descripUsu = descripUsu;
     }
-    
-    
 }

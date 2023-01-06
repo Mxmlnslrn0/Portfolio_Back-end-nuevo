@@ -14,7 +14,8 @@ public class UsuarioService implements IUSuarioService {
     
     @Override
     public List<Usuarios> verUsuarios() {
-       return UsuarioRepo.findAll();
+        List<Usuarios> usuarios = UsuarioRepo.findAll();
+        return usuarios;
     }
 
     @Override
@@ -29,12 +30,7 @@ public class UsuarioService implements IUSuarioService {
 
     @Override
     public Usuarios buscarUsuario(Long id) {
-        return UsuarioRepo.findById(id).orElse(null);
+        Usuarios usuario = UsuarioRepo.findById(id).orElse(null);
+        return usuario;
     }
-    
-    @Override
-    public void editarUsuario(Usuarios usua) {
-        UsuarioRepo.save(usua);
-    }
-    
 }

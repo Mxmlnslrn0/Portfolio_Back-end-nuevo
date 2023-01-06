@@ -4,6 +4,8 @@ import com.backend.portfolio.models.Proyectos;
 import com.backend.portfolio.service.IProyectoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,33 +13,49 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/proyecto")
 public class ProyectosController {
     
-    @Autowired IProyectoService ProServ;
+    @Autowired IProyectoService proServ;
     
-    @PostMapping("/proyecto/nuevo")
-    public void agregarProyecto (@RequestBody Proyectos Pro){
-        ProServ.agregarProyecto(Pro);
+    @GetMapping("/verTodo")
+    public List<Proyectos> verProyecto() {
+        return proServ.verProyecto();
     }
     
-    @GetMapping("/proyecto/ver")
-    @ResponseBody
-    public List<Proyectos> verProyecto (){
-    return ProServ.verProyecto();
+    @GetMapping("/traerporid/{id}")
+    public ResponseEntity<Proyectos> buscarEduPorId(@PathVariable("id") Long id) {
+        Proyectos proy = proServ.buscarProyecto(id);
+        return new ResponseEntity(proy, HttpStatus.OK);
+    }
+    
+    @PostMapping("/nuevo")
+    public String agregarProyecto (@RequestBody Proyectos proyect){
+        proServ.agregarProyecto(proyect);
+        return "El proyecto se creo satisfactoriamente";
     }
       
-    @DeleteMapping("/proyecto/{id}")
-    public void borrarProyecto(@PathVariable Long id){
-        ProServ.borrarProyecto(id);
+    @DeleteMapping("/eliminar/{id}")
+    public String borrarProyecto(@PathVariable Long id){
+        proServ.borrarProyecto(id);
+        return "El proyecto se borró correctamente";
     }
     
-    @PutMapping("/proyecto/proyecto")
-    public void editarProyecto(@RequestBody Proyectos Pro){
-        ProServ.editarProyecto(Pro);
+    @PutMapping("/editar/{id}")
+    public ResponseEntity<?> editarProyecto(@PathVariable("id") Long id,
+                                            @RequestBody Proyectos proyecto){
+        Proyectos pro = proServ.buscarProyecto(id);
+        
+        pro.setNombrePro(proyecto.getNombrePro());
+        pro.setFechaPro(proyecto.getFechaPro());
+        pro.setDescripPro(proyecto.getDescripPro());
+        
+        proServ.editarProyecto(proyecto);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

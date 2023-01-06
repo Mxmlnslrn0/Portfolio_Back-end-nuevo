@@ -14,7 +14,8 @@ public class EducacionService implements IEducacionService {
     
     @Override
     public List<Educacion> verEducacion() {
-        return EducacionRepo.findAll();
+        List<Educacion> educacion = EducacionRepo.findAll();
+        return educacion;
     }
 
     @Override
@@ -29,7 +30,8 @@ public class EducacionService implements IEducacionService {
 
     @Override
     public Educacion buscarEducacion(Long id) {
-        return EducacionRepo.findById(id).orElse(null);
+        Educacion educacion = EducacionRepo.findById(id).orElse(null);
+        return educacion;
      }
 
     @Override
