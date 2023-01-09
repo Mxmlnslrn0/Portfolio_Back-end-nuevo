@@ -35,15 +35,15 @@ public class ExperienciaController {
     }
     
     @PostMapping("/nuevo")
-    public String agregarExperiencia (@RequestBody Experiencia experi){
+    public ResponseEntity<Experiencia> agregarExperiencia (@RequestBody Experiencia experi){
         expServ.agregarExperiencia(experi);
-        return "La Experiencia se creo satisfactoriamente";
+        return new ResponseEntity(experi, HttpStatus.OK);
     }
       
     @DeleteMapping("/eliminar/{id}")
-    public String borrarExperiencia(@PathVariable Long id){
+    public ResponseEntity<Experiencia> borrarExperiencia(@PathVariable Long id){
         expServ.borrarExperiencia(id);
-        return "La Experiencia se borró correctamente";
+        return new ResponseEntity(id, HttpStatus.OK);
     }
     
     @PutMapping("/editar/{id}")

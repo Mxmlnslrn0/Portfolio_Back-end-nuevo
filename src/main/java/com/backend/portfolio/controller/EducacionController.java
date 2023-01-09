@@ -35,9 +35,9 @@ public class EducacionController {
     }
     
     @PostMapping("/nuevo")
-    public String agregarEducacion (@RequestBody Educacion educ){
+    public ResponseEntity<Educacion> agregarEducacion (@RequestBody Educacion educ){
         educacionServ.agregarEducacion(educ);
-        return "La Educacion se creo satisfactoriamente";
+        return new ResponseEntity(educ, HttpStatus.OK);
     }
       
     @DeleteMapping("/eliminar/{id}")

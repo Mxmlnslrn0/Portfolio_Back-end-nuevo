@@ -35,15 +35,16 @@ public class ProyectosController {
     }
     
     @PostMapping("/nuevo")
-    public String agregarProyecto (@RequestBody Proyectos proyect){
+    public ResponseEntity<Proyectos> agregarProyecto (@RequestBody Proyectos proyect){
         proServ.agregarProyecto(proyect);
-        return "El proyecto se creo satisfactoriamente";
+        return new ResponseEntity(proyect, HttpStatus.OK);
     }
       
     @DeleteMapping("/eliminar/{id}")
-    public String borrarProyecto(@PathVariable Long id){
+    public ResponseEntity<Proyectos> borrarProyecto(@PathVariable Long id){
         proServ.borrarProyecto(id);
-        return "El proyecto se borró correctamente";
+        return new ResponseEntity(id, HttpStatus.OK);
+
     }
     
     @PutMapping("/editar/{id}")
