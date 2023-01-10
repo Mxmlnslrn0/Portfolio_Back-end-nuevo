@@ -18,6 +18,7 @@ public class Educacion {
     private String carreraEdu;
     private int periodoEdu;
     private String descripEdu;
+    
 
     public Educacion() {
     }

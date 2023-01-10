@@ -17,14 +17,17 @@ public class Usuarios {
     private String nombreUsu;
     private String oficioUsu;
     private String descripUsu;
+    private String imgUsu;
 
     public Usuarios() {
     }
 
-    public Usuarios(Long idUsu, String nombreUsu, String oficioUsu, String descripUsu) {
-        this.idUsu = idUsu;
+    public Usuarios(String nombreUsu, String oficioUsu, String descripUsu, String imgUsu) {
         this.nombreUsu = nombreUsu;
         this.oficioUsu = oficioUsu;
         this.descripUsu = descripUsu;
+        this.imgUsu = imgUsu;
     }
+
+    
 }

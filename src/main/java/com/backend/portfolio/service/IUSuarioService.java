@@ -9,4 +9,5 @@ public interface IUSuarioService {
     public void agregarUsuario(Usuarios usua);
     public void borrarUsuario (Long id);
     public Usuarios buscarUsuario (Long id);
+    public void editarUsuario (Usuarios usua);
 }

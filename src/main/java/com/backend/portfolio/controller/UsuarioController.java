@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,11 +47,11 @@ public class UsuarioController {
         return "El usuario se creo satisfactoriamente";
     }
       
-    @DeleteMapping("/eliminar/{id}")
+    /*@DeleteMapping("/eliminar/{id}")
     public String borrarUsuarios(@PathVariable Long id){
         usuarioServ.borrarUsuario(id);
         return "El usuario se borró correctamente";
-    }
+    }*/
     
     @PutMapping("/editar/{id}")
     public ResponseEntity<?> editarUsuarios(@PathVariable("id") Long id,
@@ -62,6 +61,7 @@ public class UsuarioController {
         usu.setNombreUsu(usua.getNombreUsu());
         usu.setOficioUsu(usua.getOficioUsu());                                      
         usu.setDescripUsu(usua.getDescripUsu());
+        usu.setImgUsu(usua.getImgUsu());
         
         
         usuarioServ.agregarUsuario(usua);

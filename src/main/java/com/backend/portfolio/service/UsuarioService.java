@@ -33,4 +33,8 @@ public class UsuarioService implements IUSuarioService {
         Usuarios usuario = UsuarioRepo.findById(id).orElse(null);
         return usuario;
     }
-}
+    
+    @Override
+    public void editarUsuario(Usuarios usua) {
+        UsuarioRepo.save(usua);    }
+    }
