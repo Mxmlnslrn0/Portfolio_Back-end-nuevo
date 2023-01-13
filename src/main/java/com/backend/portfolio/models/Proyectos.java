@@ -15,18 +15,22 @@ public class Proyectos {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idPro;
     private String nombrePro;
-    private int fechaPro;
     private String descripPro;
 
     public Proyectos() {
     }
 
-    public Proyectos(Long idPro, String nombrePro, int fechaPro, String descripPro) {
+    public Proyectos(Long idPro, String nombrePro, String descripPro) {
         this.idPro = idPro;
         this.nombrePro = nombrePro;
-        this.fechaPro = fechaPro;
         this.descripPro = descripPro;
     }
+
+    
+
+    
+
+    
     
     
 }

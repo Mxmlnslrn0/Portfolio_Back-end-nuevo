@@ -53,8 +53,10 @@ public class EducacionController {
         
         edu.setNombreEdu(educacion.getNombreEdu());
         edu.setCarreraEdu(educacion.getCarreraEdu());
-        edu.setPeriodoEdu(educacion.getPeriodoEdu());
+        edu.setPeriodo_unoEdu(educacion.getPeriodo_unoEdu());
+        edu.setPeriodo_dosEdu(educacion.getPeriodo_dosEdu());
         edu.setDescripEdu(educacion.getDescripEdu());
+        edu.setImgEdu(educacion.getImgEdu());
         
         
         educacionServ.editarEducacion(educacion);

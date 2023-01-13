@@ -16,20 +16,28 @@ public class Educacion {
     private Long idEdu;
     private String nombreEdu;
     private String carreraEdu;
-    private int periodoEdu;
+    private String periodo_unoEdu;
+    private String periodo_dosEdu;
     private String descripEdu;
-    
+    private String imgEdu;
 
     public Educacion() {
     }
 
-    public Educacion(Long idEdu, String nombreEdu, String carreraEdu, int periodoEdu, String descripEdu) {
+    public Educacion(Long idEdu, String nombreEdu, String carreraEdu, String periodo_unoEdu, String periodo_dosEdu, String descripEdu, String imgEdu) {
         this.idEdu = idEdu;
         this.nombreEdu = nombreEdu;
         this.carreraEdu = carreraEdu;
-        this.periodoEdu = periodoEdu;
+        this.periodo_unoEdu = periodo_unoEdu;
+        this.periodo_dosEdu = periodo_dosEdu;
         this.descripEdu = descripEdu;
+        this.imgEdu = imgEdu;
     }
+
+    
+
+    
+
     
     
 }

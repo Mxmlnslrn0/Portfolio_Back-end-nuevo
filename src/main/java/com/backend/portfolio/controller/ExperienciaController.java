@@ -28,7 +28,7 @@ public class ExperienciaController {
         return expServ.verExperiencia();
     }
     
-    @GetMapping("/traerporid/{id}")
+    @GetMapping("/traerPorId/{id}")
     public ResponseEntity<Experiencia> buscarEduPorId(@PathVariable("id") Long id) {
         Experiencia exper = expServ.buscarExperiencia(id);
         return new ResponseEntity(exper, HttpStatus.OK);
@@ -53,8 +53,10 @@ public class ExperienciaController {
         
         exp.setEmpleoExp(experiencia.getEmpleoExp());
         exp.setPuestoExp(experiencia.getPuestoExp());
-        exp.setPeriodoExp(experiencia.getPeriodoExp());
+        exp.setPeriodo_unoExp(experiencia.getPeriodo_unoExp());
+        exp.setPeriodo_dosExp(experiencia.getPeriodo_dosExp());
         exp.setDescripExp(experiencia.getDescripExp());
+        exp.setImgExp(experiencia.getImgExp());
         
         expServ.editarExperiencia(experiencia);
         return new ResponseEntity(HttpStatus.OK);

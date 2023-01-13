@@ -28,7 +28,7 @@ public class ProyectosController {
         return proServ.verProyecto();
     }
     
-    @GetMapping("/traerporid/{id}")
+    @GetMapping("/traerPorId/{id}")
     public ResponseEntity<Proyectos> buscarEduPorId(@PathVariable("id") Long id) {
         Proyectos proy = proServ.buscarProyecto(id);
         return new ResponseEntity(proy, HttpStatus.OK);
@@ -53,7 +53,6 @@ public class ProyectosController {
         Proyectos pro = proServ.buscarProyecto(id);
         
         pro.setNombrePro(proyecto.getNombrePro());
-        pro.setFechaPro(proyecto.getFechaPro());
         pro.setDescripPro(proyecto.getDescripPro());
         
         proServ.editarProyecto(proyecto);

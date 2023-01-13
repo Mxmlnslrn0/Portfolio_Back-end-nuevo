@@ -16,19 +16,27 @@ public class Experiencia {
     private Long idExp;
     private String empleoExp;
     private String puestoExp;
-    private int periodoExp;
+    private String periodo_unoExp;
+    private String periodo_dosExp;
     private String descripExp;
+    private String imgExp;
 
     public Experiencia() {
     }
-    
-    public Experiencia(Long idExp, String empleoExp, String puestoExp, int periodoExp, String descripExp) {
+
+    public Experiencia(Long idExp, String empleoExp, String puestoExp, String periodo_unoExp, String periodo_dosExp, String descripExp, String imgExp) {
         this.idExp = idExp;
         this.empleoExp = empleoExp;
         this.puestoExp = puestoExp;
-        this.periodoExp = periodoExp;
+        this.periodo_unoExp = periodo_unoExp;
+        this.periodo_dosExp = periodo_dosExp;
         this.descripExp = descripExp;
+        this.imgExp = imgExp;
     }
+
+    
+    
+    
 
     
 }
